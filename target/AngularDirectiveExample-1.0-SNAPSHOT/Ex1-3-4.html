@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+        <script src="script/app1.js" type="text/javascript"></script>
+    </head>
+    <body ng-controller="Main" >
+        <a href="http://localhost:8080/AngularDirectiveExample/Ex2.html">For Ex2</a>
+        <h1>Angular Filter/Directive Ex</h1>
+        <!--Ex-3-->
+        <div>
+            <p>{{RandN}}</p>
+            <p>{{RandS}}</p>
+        </div>
+        <!--Ex-1a-->
+        <div ng-controller="MyController as MCtrl">
+            <input type="text" ng-model="MCtrl.arg">
+            <div ng-repeat="person in MCtrl.persons| kidTeen: MCtrl.arg">
+                <span ng-bind="person.name"></span> is {{person.age}} years old
+            </div>
+        </div>
+        <!--Ex-4-->
+        <div ng-controller="myController as ctrl">
+            <h1>Restful countries</h1>
+            
+            <p>All countries</p>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Capital</th>
+                    <th>Population</th>
+                    <th>Region</th>
+                </tr>
+                <tr ng-repeat="c in ctrl.countries_all">
+                    <td>{{c.name}}</td>
+                    <td>{{c.capital}}</td>
+                    <td>{{c.population}}</td>
+                    <td>{{c.region}}</td>
+                </tr>
+            </table>
+
+            <h5>All countries in Europe</h5>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Capital</th>
+                    <th>Population</th>
+                    <th>Region</th>
+                </tr>
+                <tr ng-repeat="co in ctrl.countries_all_from_region">
+                    <td>{{co.name}}</td>
+                    <td>{{co.capital}}</td>
+                    <td>{{co.population}}</td>
+                    <td>{{co.region}}</td>
+                </tr>
+            </table>
+
+            <h5>All countries by code</h5>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Capital</th>
+                    <th>Population</th>
+                    <th>Region</th>
+                </tr>
+                <tr ng-repeat="cou in ctrl.countries_all_by_code">
+                    <td>{{cou.name}}</td>
+                    <td>{{cou.capital}}</td>
+                    <td>{{cou.population}}</td>
+                    <td>{{cou.region}}</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
